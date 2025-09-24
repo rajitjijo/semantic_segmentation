@@ -2,7 +2,7 @@ import os
 from PIL import Image
 from torch.utils.data import Dataset
 import numpy as np
-from torchvision.transforms import transforms
+
 
 class CarvanaDataset(Dataset):
 
@@ -24,4 +24,8 @@ class CarvanaDataset(Dataset):
 
         if self.transforms:
             augmentations = self.transforms(image=image, mask=mask)
+            image = augmentations["image"]
+            mask = augmentations["mask"]
+
+        return image, mask
 
