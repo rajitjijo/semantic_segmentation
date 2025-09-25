@@ -100,7 +100,7 @@ def main():
         acc, dice_score = check_accuracy(val_laoder, model, device, save_dir)
         with open(os.path.join(train_save_dir, "metrics.csv"), "a", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow([epoch+1, loss, acc, dice_score.item()])
+            writer.writerow([epoch+1, loss, acc, dice_score.item()]) # type: ignore
 
 
 if __name__ == "__main__":
